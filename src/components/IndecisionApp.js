@@ -13,7 +13,7 @@ const IndecisionApp = () => {
     useEffect(() => {
         const opts = JSON.parse(window.localStorage.getItem('options'))
         if (opts) {
-            setOptions([opts])
+            setOptions(opts)
         }
     }, [])
 
