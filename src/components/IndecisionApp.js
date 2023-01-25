@@ -19,7 +19,7 @@ const IndecisionApp = () => {
 
     useEffect(() => {
         window.localStorage.setItem('options', JSON.stringify(options))
-    }, [options]);
+    });
 
 
     const handlePick = () => {
