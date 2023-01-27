@@ -11,15 +11,21 @@ const IndecisionApp = () => {
     const [selectedOption, setSelectedOption] = useState(undefined)
 
     useEffect(() => {
-        const opts = JSON.parse(window.localStorage.getItem('options'))
+        const opts = JSON.parse(localStorage.getItem('options'))
+
+
         if (opts) {
-            setOptions(options.concat(opts))
+            setOptions(opts)
         }
     }, [])
 
-    useEffect(() => {
-        window.localStorage.setItem('options', JSON.stringify(options))
-    });
+
+
+
+    // useEffect(() => {
+    //     localStorage.setItem('options', JSON.stringify(options))
+    // }, [options]);
+
 
 
     const handlePick = () => {
@@ -35,7 +41,12 @@ const IndecisionApp = () => {
         } else if (options.indexOf(opt) > -1) {
             return 'Option Already Exists'
         }
-        setOptions(options.concat(opt))
+        const localOpt = options.concat(opt)
+        setOptions(localOpt)
+
+        //stupid work around because useEffect is not working as expected
+        localStorage.setItem('options', JSON.stringify(localOpt))
+
     }
 
     const handleClearSelectedOption = () => {
@@ -46,18 +57,20 @@ const IndecisionApp = () => {
         setOptions([])
     }
 
-    ///look into this one.......
+
     const handleDeleteOne = (optToRemove) => {
         setOptions(options.filter((opt) => optToRemove !== opt))
 
     }
 
 
+
+
     const subtitle = 'Put your life in the hands of a computer!'
     return (
         <div>
             <Header subtitle={subtitle} title='Indecision App' />
-            <div className="container">
+            <div className="container mr-auto ml-auto pr-7 pl-7 text-left">
                 <Action handlePick={handlePick} hasOptions={options.length > 0} />
                 <div className="widget">
                     <Options options={options} deleteOne={handleDeleteOne} deleteOptions={handleDeleteOptions} />

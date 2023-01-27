@@ -2,11 +2,13 @@ import Option from "./Option";
 
 const Options = ({ options, deleteOne, deleteOptions }) => {
 
+
+
     return (
         <div>
             <div className="widget-header">
-                <h3 className="widget-header__title">Your Options</h3>
-                <button className="button button--link" onClick={deleteOptions}>Remove All</button>
+                <h3 className="widget-header__title text-5xl">Your Options</h3>
+                {options.length !== 0 ? <button className="button button--link" onClick={deleteOptions}>Remove All</button> : null}
             </div>
             {options.length === 0 ? <p className="widget_message">Please add an option to get started!</p> : null}
             {options.map((opt, index) => {

@@ -1,38 +1,139 @@
-.App {
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: darkblue;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+.big-button {
+  background: purple;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  border: none;
+  border-bottom: 0.9rem solid rgb(116, 14, 116);
+  border-right: 0.9rem solid rgb(116, 14, 116);
+  margin-bottom: 1.875rem;
+  padding: 2.4rem;
+  width: 100%;
+}
+
+.big-button:disabled {
+  opacity: 0.4;
+}
+
+.button {
+  background: purple;
+  border: none;
+  border-bottom: 0.6rem solid rgb(116, 14, 116);
+  border-right: 0.6rem solid rgb(116, 14, 116);
+  color: white;
+  font-weight: 500;
+  padding: 1.2rem;
+}
+
+.button--link {
+  background: none;
+  border: none;
+  color: rgb(202, 197, 197);
+  padding: 0;
+}
+
+.ReactModalPortal > div {
+  opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 200ms ease-in-out;
+}
+.ReactModalPortal .ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+.modal {
+  background: darkblue;
+  color: white;
+  max-width: 30rem;
+  outline: none;
+  padding: 3.2rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.modal h3 {
+  margin: 0 0 1.6rem 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.modal p {
+  margin: 0 0 3.2rem 0;
+  font-size: 2rem;
+  font-weight: 300;
+  word-break: break-all;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.widget {
+  background: white;
+  margin-bottom: 4.8rem;
+}
+
+.widget-header {
+  background: blue;
+  color: rgb(173, 167, 167);
+  padding: 1.6rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.widget-header__title {
+  margin: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.widget__message {
+  color: yellow;
+  margin: 0;
+  padding: 3.2rem;
+  text-align: center;
+  border-bottom: 1px solid lightblue;
+}
+
+@media (max-width: 45rem) {
+  .big-button {
+    margin-bottom: 1.25rem;
+    font-size: 2.4rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .add-option form {
+    flex-direction: column;
+  }
+
+  .add-option input {
+    border: none;
+    margin: 0 0 1.2rem 1.2rem;
+  }
+
+  .add-option button {
+    border: none;
   }
 }
